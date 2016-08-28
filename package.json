@@ -2,8 +2,8 @@
   "name": "ng-moment-calendar",
   "private": true,
   "version": "0.0.0",
-  "description": "AngularJS Calendar component",
-  "repository": "https://github.com/vinhnghi223/ng-calendar",
+  "description": "AngularJS Moment Calendar component",
+  "repository": "https://github.com/vinhnghi223/ng-moment-calendar",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",

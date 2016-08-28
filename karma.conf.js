@@ -7,7 +7,6 @@ module.exports = function(config) {
     files: [
       '../node_modules/moment/moment.js',
       'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'services/**/*.js'
     ],
