@@ -1,17 +1,11 @@
 /**
  * Created by lvn on 28/08/16.
  */
-'use strict';
+
+
+var monthCalUtils = require("./MonthCalendarUtils.js");
 
 describe('MonthCalendarUtils', function() {
-
-    var monthCalUtils;
-
-    beforeEach(module('ngMomentCalendar.service'));
-
-    beforeEach(inject(function (MonthCalendarUtils) {
-        monthCalUtils = MonthCalendarUtils;
-    }));
 
     it('should be defined', function () {
         expect(monthCalUtils).toBeDefined();
@@ -90,18 +84,18 @@ describe('MonthCalendarUtils', function() {
         });
 
         describe('isValidDate', function () {
-            it('should return true if arguments are valid', function () {
+            it('should return TRUE if arguments are valid', function () {
                 expect(monthCalUtils.isValidDate('2016-01-01')).toBe(true);
             });
 
-            it('should return true if arguments are valid case deprecated warning', function () {
+            it('should return TRUE if arguments are valid case deprecated warning', function () {
                 expect(monthCalUtils.isValidDate('2016-08')).toBe(true);
                 expect(monthCalUtils.isValidDate('2016/08')).toBe(true);
                 expect(monthCalUtils.isValidDate('08/16')).toBe(true);
                 expect(monthCalUtils.isValidDate('08-08-2016', 'DD-MM-YYYY')).toBe(true);
             });
 
-            it('should return false if arguments are invalid', function () {
+            it('should return FALSE if arguments are invalid', function () {
                 expect(monthCalUtils.isValidDate('2016-01-01', 'MM')).toBe(false);
                 expect(monthCalUtils.isValidDate('2016/088')).toBe(false);
             });

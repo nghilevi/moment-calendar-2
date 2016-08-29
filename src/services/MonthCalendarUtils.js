@@ -1,8 +1,6 @@
 /**
  * Created by lvn on 28/08/16.
  */
-'use strict';
-
 angular.module('ngMomentCalendar.service')
 
     .factory('MonthCalendarUtils', function () {
