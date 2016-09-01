@@ -55,8 +55,8 @@ describe('MonthCalendar', function() {
             it('should populate weeksTable and momentWeeksTable with current date if argument is an invalid date',function () {
                 monthView.setMonth('invalid string');
                 expect(monthView.weeksTable.length).toBe(monthView.momentWeeksTable.length);
-                expect(monthView.weeksTable[2][1]).toBe(8);
-                expect(monthView.momentWeeksTable[2][1].format('YYYY-MM-DD')).toBe('2016-08-08');
+                expect(monthView.weeksTable[2][1]).toBe(5);
+                expect(monthView.momentWeeksTable[2][1].format('YYYY-MM-DD')).toBe('2016-09-05');
             });
         });
 

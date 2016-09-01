@@ -91,7 +91,10 @@ angular.module('ngMomentCalendar.service')
         }
 
         function isValidDate(date, format, isStrictMode) {
-            return format ? moment(date,format, isStrictMode).isValid() : moment(date, isStrictMode).isValid();
+            if(!isNaN(Date.parse(date))){
+                return format ? moment(date,format, isStrictMode).isValid() : moment(date, isStrictMode).isValid();
+            }
+            return false;
         }
 
 
