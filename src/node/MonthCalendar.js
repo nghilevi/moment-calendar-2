@@ -16,11 +16,11 @@ function getDate(date) {
 
 function setMonth(date, format, isStrictMode) {
     date = monthCalendarUtils.isValidDate(date) ? date : moment();
-    angular.extend(this, monthCalendarUtils.populateWeeksTable(date));
+    _.extend(this, monthCalendarUtils.populateWeeksTable(date));
 }
 
 function setDate(date, prop) {
-    return angular.extend(this.getDate(date), prop);
+    return _.extend(this.getDate(date), prop);
 }
 
 // Public

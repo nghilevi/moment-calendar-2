@@ -6,6 +6,7 @@ module.exports = function(config) {
 
     files: [
       //'../node_modules/requirejs/require.js',
+      '../node_modules/lodash/lodash.js',
       '../node_modules/moment/moment.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',

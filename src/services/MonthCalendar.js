@@ -21,11 +21,11 @@ angular.module('ngMomentCalendar.service', [])
 
         function setMonth(date, format, isStrictMode) {
             date = MonthCalendarUtils.isValidDate(date) ? date : moment();
-            angular.extend(this, MonthCalendarUtils.populateWeeksTable(date));
+            _.extend(this, MonthCalendarUtils.populateWeeksTable(date));
         }
 
         function setDate(date, prop) {
-            return angular.extend(this.getDate(date), prop);
+            return _.extend(this.getDate(date), prop);
         }
 
         // Public
