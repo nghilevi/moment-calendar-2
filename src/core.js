@@ -3,6 +3,7 @@
  */
 
 var cache = {};
+var currentMonthDate;
 
 function getDaysOfMonth(date) {
     var numberOfDays = moment(date).daysInMonth();
@@ -40,15 +41,34 @@ function initWeeksDay() {
     });
 }
 
+function isDateInMonth(date) {
+    try{
+        if(isNaN(date)){
+            if(isValidDate(date)){
+                var cacheKey = moment(date).year()+'-'+moment(date).month();
+                return !!cache[cacheKey]; 
+            }else{
+                return false;
+            }
+            
+        }else{
+            return (date >= currentMonthDate.startOf('month').get('date')) && (date <= currentMonthDate.endOf('month').get('date'));
+        }
+    }catch(err){
+        return false;
+    }
+}
+
 // Use memoization here or another service
 function populateWeeksTable(date) {
     var cacheKey = moment(date).year()+'-'+moment(date).month();
+    currentMonthDate = moment(date);
 
     if(!cache[cacheKey]){
 
         var weeksTable = [];
         var momentWeeksTable = [];
-        var weeksTableDateMap = {};
+        var datePositionMap = {};
 
         var monthDays = getPreviousMonthOverlappingDays(date).concat(getDaysOfMonth(date)).concat(getNextMonthOverlappingDays(date));
         var weekDays = initWeeksDay();
@@ -59,17 +79,17 @@ function populateWeeksTable(date) {
         for (var j = 0, rowId = 1; j < monthDays.length; j = j + 7) {
             var week = monthDays.slice(j, j + 7);
             week.forEach(function (day, colId) {
-                weeksTableDateMap[day] = {row: rowId, col: colId};
+                datePositionMap[day] = {row: rowId, col: colId};
             });
             weeksTable.push(week);
             momentWeeksTable.push(week.map(function (d) {
-                return moment(date).set('date', d);
+                return d === '' ? d : moment(date).set('date', d);
             }));
             rowId++;
         }
 
         cache[cacheKey] =  {
-            weeksTableDateMap: weeksTableDateMap,
+            datePositionMap: datePositionMap,
             weeksTable: weeksTable,
             momentWeeksTable: momentWeeksTable
         };
@@ -83,8 +103,19 @@ function isValidDate(date, format, isStrictMode) {
     return format ? moment(date,format, isStrictMode).isValid() : moment(date, isStrictMode).isValid();
 }
 
+function extend(src, dest) {
+    for (var i in dest) {
+        if (dest.hasOwnProperty(i)) {
+            src[i] = dest[i];
+        }
+    }
+}
+
 module.exports = {
+    currentMonthDate:currentMonthDate,
+    extend:extend,
     isValidDate: isValidDate,
+    isDateInMonth:isDateInMonth,
     initWeeksDay: initWeeksDay,
     populateWeeksTable: populateWeeksTable,
     getDaysOfMonth: getDaysOfMonth,

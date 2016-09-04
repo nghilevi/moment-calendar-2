@@ -22,8 +22,8 @@ gulp.task('minify', function () {
 });
 
 gulp.task('browserify', function () {
-    return browserify('./src/month-calendar.js',{
-            standalone: 'moment-calendar'
+    return browserify('./src/api.js',{
+            standalone: 'Moment-calendar-factory'
         })
         .bundle()
         .pipe(source('moment-calendar-2.js'))

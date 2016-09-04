@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<body>
+Name: {{vm.name}}
+  <section class="container">
+    <table class="cal">
+      <caption>
+        <span class="prev" ng-click="vm.previousMonth()"><a href="#">&larr;</a></span>
+        <span class="next" ng-click="vm.nextMonth()"><a href="#">&rarr;</a></span>
+        {{ vm.monthCursor.format('MMMM')+', ' + vm.monthCursor.get('year') }}
+      </caption>
+      <thead>
+        <tr>
+          <th ng-repeat="weekDay in vm.weekDays track by $index">{{weekDay}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="week in vm.weeksTable.slice(1) track by $index">
+          <td class="off" ng-repeat="date in week track by $index"><a href="#">{{date === '' ? '.' : date.get('date')}}</a></td>
+      </tbody>
+    </table>
+  </section>
+
+</body>
+</html>

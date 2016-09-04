@@ -3,16 +3,12 @@
     <head >
         <meta charset="UTF-8">
         <title></title>
+        <link rel="stylesheet" href="calendar/css/style.css">
     </head>
 
     <body ng-app="Demo">
 
-        <div ng-controller="DemoCtrl as vm">
-            <button ng-click="vm.nextMonth()">Next Month</button>
-            <button ng-click="vm.previousMonth()">Previous Month</button>
-
-            {{ vm.calendar | json}}
-        </div>
+        <demo-moment-calendar></demo-moment-calendar>
 
         <script src="angular/angular.js"></script>
         <script src="moment/moment.js"></script>
