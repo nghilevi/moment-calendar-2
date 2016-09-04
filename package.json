@@ -1,25 +1,24 @@
 {
-  "name": "ng-moment-calendar",
+  "name": "moment-calendar-2",
   "private": true,
   "version": "0.0.0",
-  "description": "AngularJS Moment Calendar component",
-  "repository": "https://github.com/vinhnghi223/ng-moment-calendar",
+  "description": "Powerful, scalable yet easy-to-use Moment Calendar component",
+  "repository": "https://github.com/vinhnghi223/moment-calendar-2",
   "license": "MIT",
   "devDependencies": {
-    "bower": "^1.7.7",
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8",
     "browserify": "^13.1.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-angular-filesort": "^1.1.1",
     "gulp-concat": "^2.6.0",
     "gulp-load-plugins": "^1.2.2",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-release-easy": "^1.0.5",
     "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.2",
     "gulp-sequence": "^0.4.5",
-    "gulp-uglify": "^1.5.3",
+    "gulp-uglify": "^2.0.0",
     "gulp-webserver": "^0.9.1",
     "gulp-wrap": "^0.11.0",
     "http-server": "^0.9.0",
@@ -32,23 +31,17 @@
     "karma-junit-reporter": "^0.4.1",
     "karma-requirejs": "^1.0.0",
     "requirejs": "^2.2.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vinyl-transform": "^1.0.0",
     "watchify": "^3.7.0"
   },
   "scripts": {
-    "postinstall": "bower install",
-    "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
-    "preupdate-webdriver": "npm install",
-    "update-webdriver": "webdriver-manager update",
-    "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js",
-    "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
+    "preupdate-webdriver": "npm install"
   },
   "dependencies": {
-    "lodash": "^4.15.0",
     "moment": "^2.14.1"
   }
 }

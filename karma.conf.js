@@ -2,23 +2,20 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: './src',
+    basePath: '.',
 
     files: [
-      //'../node_modules/requirejs/require.js',
-      '../node_modules/lodash/lodash.js',
-      '../node_modules/moment/moment.js',
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'services/**/*.js',
-      'node/**/*.js'
+      'node_modules/moment/moment.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'src/**/*.js'
     ],
 
     autoWatch: true,
 
     frameworks: ['jasmine', 'browserify'],
     preprocessors: {
-      'node/**/*.js': [ 'browserify' ]
+      'src/**/*.js': [ 'browserify' ]
     },
 
     browsers: ['Chrome'],

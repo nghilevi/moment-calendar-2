@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head >
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <head >
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
 
-<div class="align-center grid-block" style="margin-top: 1%;">
-    <div class="small-4 grid-block">
-        <a ng-repeat="modalId in idArray" class="button" href="#" ng-click="showModal(modalId)">Show {{modalId}}</a>
-    </div>
-</div>
+    <body ng-app="Demo">
 
-<div class="align-center grid-block">
-    <p>{{promiseResult}}</p>
-</div>
+        <div ng-controller="DemoCtrl as vm">
+            <button ng-click="vm.nextMonth()">Next Month</button>
+            <button ng-click="vm.previousMonth()">Previous Month</button>
 
-<script src="angular/angular.js"></script>
-<script src="angular/angular.js"></script>
-<script src="app.js"></script>
-</body>
+            {{ vm.calendar | json}}
+        </div>
+
+        <script src="angular/angular.js"></script>
+        <script src="moment/moment.js"></script>
+        <script src="moment-calendar-2.js"></script>
+        <script src="app.js"></script>
+
+    </body>
 </html>

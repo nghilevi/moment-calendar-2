@@ -7,37 +7,31 @@ require('gulp-release-easy')(gulp, {releaseBranch: 'master'});
 var sass = require('gulp-sass');
 var gulpSequence = require('gulp-sequence');
 var del = require('del');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 gulp.task('clean', function () {
     return del(['dist/*.*']);
 });
 
-// JS
-gulp.task('js', function () {
-    return gulp.src(['src/_app.js', 'src/services/**/*.js', '!src/**/*.spec.js'])
-        .pipe($.angularFilesort())
-        .pipe($.concat('moment-calendar-2.js'))
-        .pipe($.ngAnnotate())
-        .pipe($.wrap('(function(){\n    \'use strict\';\n    <%= contents %>\n})();\n\n'))
-        .pipe(gulp.dest('dist'));
-});
-
-gulp.task('js-min', function () {
+gulp.task('minify', function () {
     return gulp.src('dist/moment-calendar-2.js')
         .pipe($.uglify())
         .pipe($.rename('moment-calendar-2.min.js'))
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build-js', function (cb) {
-    return gulpSequence('js', 'js-min', cb);
+gulp.task('browserify', function () {
+    return browserify('./src/month-calendar.js',{
+            standalone: 'moment-calendar'
+        })
+        .bundle()
+        .pipe(source('moment-calendar-2.js'))
+        .pipe(gulp.dest('./dist'));
 });
 
-// BUILD
-gulp.task('build', ['clean','build-js']);
-
-gulp.task('watch', function () {
-    gulp.watch('src/**/*.js', ['build-js']);
+gulp.task('build', function (cb) {
+    return gulpSequence('clean', 'browserify', 'minify', cb);
 });
 
 gulp.task('server', ['build'], function () {
@@ -50,5 +44,5 @@ gulp.task('server', ['build'], function () {
 });
 
 gulp.task('default', ['server'], function () {
-    gulp.watch('src/**/*.js', ['build']);
+    gulp.watch('src/**/*.js', ['browserify']);
 });

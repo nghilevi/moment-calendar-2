@@ -1,15 +1,14 @@
 /**
  * Created by lvn on 28/08/16.
  */
+
+var month = require("./month-calendar.js");
+
 describe('MonthCalendar', function() {
 
-    var month;
-
-    beforeEach(module('ngMomentCalendar.service'));
-
-    beforeEach(inject(function (MonthCalendar) {
-        month = MonthCalendar;
-    }));
+    function lo(l,o) {
+        console.log(l,JSON.stringify(o,undefined,2));
+    }
 
     it('should be defined',function () {
         expect(month).toBeDefined();

@@ -3,7 +3,7 @@
  */
 
 
-var monthCalUtils = require("./MonthCalendarUtils.js");
+var monthCalUtils = require("./utils.js");
 
 describe('MonthCalendarUtils', function() {
 
