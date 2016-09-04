@@ -1,9 +1,9 @@
 # moment-calendar-2
 [![npm version](https://badge.fury.io/js/moment-calendar-2.svg)](http://badge.fury.io/js/moment-calendar-2)
 
-A Node module to create month calendar where each date is a moment date.
+A simple yet powerful Node module to create month calendar object where each date is a MomentJS object. You can leverage further with date operations as well as configuring localization through MomentJS.
 
-This [`Demo`](https://vinhnghi223.github.io/moment-calendar-2/) demonstrates how to use moment-calendar-2 together with angular to build a date picker component.
+You can use this component with other frameworks and libraries with ease. This [`Demo`](https://vinhnghi223.github.io/moment-calendar-2/) demonstrates how to use moment-calendar-2 together with angular to build a date picker component.
 
 
 ## Getting Started
@@ -13,6 +13,8 @@ NPM install moment-calendar 2
 ```
     npm install moment-calendar-2
 ```
+
+Notes that this is a stand-alone version. moment-calendar depends on momentJS, so make sure you have also include that in your app.
 
 Include the script in your html:
 

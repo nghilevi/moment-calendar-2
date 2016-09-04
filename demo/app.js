@@ -15,13 +15,13 @@ angular.module('Demo',[])
 
         function nextMonth(){
             vm.monthCursor.add(1,'month');
-            vm.calendar.setCurrentMonthDate(vm.monthCursor);
+            vm.calendar.setCurrentDate(vm.monthCursor);
             vm.weeksTable = vm.calendar.getWeeksTable();
         }
 
         function previousMonth(){
             vm.monthCursor.subtract(1,'month');
-            vm.calendar.setCurrentMonthDate(vm.monthCursor);
+            vm.calendar.setCurrentDate(vm.monthCursor);
             vm.weeksTable = vm.calendar.getWeeksTable();
         }
 
