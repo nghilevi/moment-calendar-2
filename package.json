@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "Powerful, scalable yet easy-to-use Moment Calendar component",
   "repository": "https://github.com/vinhnghi223/moment-calendar-2",
+  "keywords": ["moment","calendar","node","npm","datepicker"],
   "license": "MIT",
   "devDependencies": {
     "angular": "^1.5.8",
