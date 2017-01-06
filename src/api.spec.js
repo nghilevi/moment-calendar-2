@@ -22,10 +22,14 @@ describe('MonthCalendar', function () {
         });
 
         describe('getInstance', function () {
-            it('should setCurrentDate by default if argument is a date', function () {
-                expect(month.getInstance('2016-07').getDatePosition(8)).toEqual({row: 2, col: 5});
-                expect(month.getInstance('2016-08').getDatePosition(8)).toEqual({row: 2, col: 1});
+            it('should return a monthCalendar object where its current date is set by default', function () {
+                var monthCalendar = month.getInstance();
+                expect(monthCalendar.getCurrentDate().format('YYYY-MM-DD')).toEqual(moment().format('YYYY-MM-DD'));
+            });
 
+            it('should return a monthCalendar object where its current date is set manually', function () {
+                var monthCalendar = month.getInstance('2019-09-19');
+                expect(monthCalendar.getCurrentDate().format('YYYY-MM-DD')).toEqual(moment('2019-09-19').format('YYYY-MM-DD'));
             });
         });
 
@@ -58,7 +62,7 @@ describe('MonthCalendar', function () {
                 expect(monthView.momentWeeksTable[2][1].format('YYYY-MM-DD')).toBe('2016-05-09');
             });
 
-            it('should populate weeksTable and momentWeeksTable with current date if argument is an invalid date', function () {
+            xit('should populate weeksTable and momentWeeksTable with current date if argument is an invalid date', function () {
                 monthView.setCurrentDate('invalid string');
                 expect(monthView.weeksTable.length).toBe(monthView.momentWeeksTable.length);
                 expect(monthView.weeksTable[2][1]).toBe(5);

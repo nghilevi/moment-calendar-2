@@ -39,7 +39,7 @@ function getWeeksTable(isPlainWeeksTable) {
 }
 
 function getCurrentDate() {
-    return core.currentMonthDate;
+    return core.getCurrentMonthDate();
 }
 
 // Public

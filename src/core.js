@@ -63,6 +63,7 @@ function isDateInMonth(date) {
 function populateWeeksTable(date) {
     var cacheKey = moment(date).year()+'-'+moment(date).month();
     currentMonthDate = moment(date);
+    //console.log('pop currentMonthDate: ',currentMonthDate);
 
     if(!cache[cacheKey]){
 
@@ -111,6 +112,10 @@ function extend(src, dest) {
     }
 }
 
+function getCurrentMonthDate(){
+    return currentMonthDate;
+}
+
 module.exports = {
     currentMonthDate:currentMonthDate,
     extend:extend,
@@ -119,6 +124,7 @@ module.exports = {
     initWeeksDay: initWeeksDay,
     populateWeeksTable: populateWeeksTable,
     getDaysOfMonth: getDaysOfMonth,
+    getCurrentMonthDate: getCurrentMonthDate,
     getPreviousMonthOverlappingDays: getPreviousMonthOverlappingDays,
     getNextMonthOverlappingDays: getNextMonthOverlappingDays
 };
