@@ -22,6 +22,11 @@ describe('MonthCalendar', function () {
         });
 
         describe('getInstance', function () {
+            it('should return a monthCalendar object', function () {
+                var monthCalendar = month.getInstance();
+                expect(monthCalendar.getCurrentDate()).toBeDefined();
+            });
+
             it('should return a monthCalendar object where its current date is set by default', function () {
                 var monthCalendar = month.getInstance();
                 expect(monthCalendar.getCurrentDate().format('YYYY-MM-DD')).toEqual(moment().format('YYYY-MM-DD'));
