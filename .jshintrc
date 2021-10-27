@@ -16,7 +16,7 @@
     "it": false,
     "expect": false,
 
-    // Protractor
+    // Protractor // test
     "browser": false,
     "element": false,
     "by": false
