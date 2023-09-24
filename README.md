@@ -3,7 +3,7 @@
 
 A super lightweight, easy-to-use yet powerful Node module to create month calendar where each date is a momentJS date. You can leverage further with date operations as well as configuring localization through MomentJS.
 
-You can use this component with other frameworks and libraries with ease. This [`Demo`](https://vinhnghi223.github.io/moment-calendar-2/) demonstrates how to use moment-calendar-2 together with angular to build a date picker component.
+You can use this component with other frameworks and libraries with ease. This [`Demo`](https://nghilevi.github.io/moment-calendar-2/) demonstrates how to use moment-calendar-2 together with angular to build a date picker component.
 
 
 ## Getting Started
